@@ -37,22 +37,3 @@ class ItemViewDelegateManager<T, K : BaseViewHolder<T>> {
         return constructor.newInstance(itemView) as K
     }
 }
-
-class Test : ItemViewDelegate<String, Holder> {
-    override fun getLayoutResId(): Int {
-        return 1
-    }
-
-    override fun getHolderClass(): Class<Holder> {
-        return Holder::class.java
-    }
-
-    override fun isForViewType(item: String, position: Int): Boolean {
-        return true
-    }
-}
-
-class Holder(itemView: View) : BaseViewHolder<String>(itemView) {
-    fun a() {}
-    fun b() {}
-}
