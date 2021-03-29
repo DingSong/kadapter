@@ -25,8 +25,7 @@ open class MultiBaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
         val delegate = mItemViewDelegateManager.getItemViewDelegate(getItemViewType(position))
         val item = getItem(position)
         val adapterPosition = holder.adapterPosition
-        delegate.onBind(item, adapterPosition)
-        holder.onBind(item, adapterPosition)
+        delegate.onBind(item, adapterPosition, holder)
     }
 
     override fun getItemViewType(position: Int): Int {

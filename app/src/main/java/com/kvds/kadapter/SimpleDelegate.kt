@@ -11,6 +11,11 @@ open class SimpleDelegate : ItemViewDelegate<String, SimpleViewHolder> {
     override fun getHolderClass() = SimpleViewHolder::class.java
 
     override fun isForViewType(item: String, position: Int) = position % 2 == 0
+
+    override fun onBind(item: String, position: Int, holder: SimpleViewHolder) {
+        super.onBind(item, position, holder)
+        holder.onBind(item, position)
+    }
 }
 
 class SimpleViewHolder(view: View) : BaseViewHolder<String>(view) {
@@ -32,6 +37,11 @@ class AnotherDelegate : ItemViewDelegate<String, AnotherHolder> {
     override fun getHolderClass() = AnotherHolder::class.java
 
     override fun isForViewType(item: String, position: Int) = position % 2 != 0
+
+    override fun onBind(item: String, position: Int, holder: AnotherHolder) {
+        super.onBind(item, position, holder)
+        holder.onBind(item, position)
+    }
 }
 
 class AnotherHolder(view: View) : BaseViewHolder<String>(view) {
